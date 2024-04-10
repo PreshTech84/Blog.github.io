@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The World of AI</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div id="wrapper">
+    <%- include("../partials/header.ejs") %>
+            <h1><%= post.title %></h1>
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at mi pellentesque, iaculis sem at, rhoncus nisi. Nulla sed imperdiet urna, eu aliquet ex. Suspendisse in feugiat nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dignissim, augue ut semper sagittis, nulla dolor condimentum dolor, ac cursus ex dolor eu lorem. Phasellus vel massa congue, malesuada quam at, vulputate risus. Fusce eu metus sit amet leo ornare efficitur. Nam sodales aliquet dignissim.
+        
+                Nam volutpat placerat molestie. Aenean condimentum ligula odio, eu accumsan risus fermentum vitae. Fusce sagittis ut mi sed tincidunt. Nam congue non libero vel laoreet. In ultrices, enim et rhoncus finibus, metus lectus mollis libero, sit amet accumsan metus sem et mi. Vivamus quis dictum erat. Proin ornare sed tellus ac tincidunt. Nam arcu elit, volutpat ac nunc eu, mollis interdum diam. Vestibulum vitae consectetur leo.
+                
+                Aliquam arcu mauris, ornare vitae aliquet a, tempus id nunc. Aliquam eu sollicitudin libero. Nam at porttitor leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque sit amet neque ut sem aliquet elementum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris et dapibus orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                
+                Aliquam nisi nulla, bibendum a hendrerit eu, ullamcorper nec quam. Vivamus molestie lacus porta, maximus justo ornare, eleifend ex. Nullam venenatis ipsum id vehicula euismod. Nunc interdum molestie eros, eget euismod quam sollicitudin a. Etiam at convallis nisi. Vivamus dignissim nunc eget urna posuere scelerisque sit amet et arcu. Maecenas fermentum justo nec odio tincidunt finibus.
+                
+                Ut fermentum laoreet elit, ac auctor felis pharetra in. Mauris ut turpis auctor tellus viverra dictum. Etiam sit amet consectetur turpis. Proin eu tempus velit, nec posuere diam. In leo dolor, scelerisque et velit vel, ornare mollis velit. Aenean condimentum, libero quis luctus mattis, mauris justo finibus odio, id pellentesque massa odio at erat. Curabitur id quam elit. Nam nec rutrum massa. Cras varius est sem, ac lobortis felis ultrices sit amet.</p>
+        
+        
+        
+        
+        
+        
+            </p>
+            <h2>Add a Comment</h2>
+            <form action="/comment/<%= post.id %>" method="post">
+                <input type="text" name="comment" placeholder="Type your comment here">
+                <button type="submit">Submit Comment</button>
+            
+            </form>
+        
+            <% if (post.comments && post.comments.length > 0) { %>
+                <h2>Comments:</h2>
+                <ul>
+                    <% post.comments.forEach((comment) => { %>
+                        <li><%= comment %></li>
+               <% }); %> 
+                </ul>
+                <% } %>
+        
+        
+    <%- include("../partials/footer.ejs") %> 
+    </div>
+
+</body>
+</html>

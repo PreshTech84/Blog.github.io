@@ -1,0 +1,15 @@
+<div id="wrapper">
+<%- include("../partials/header.ejs") %>
+
+<body>
+    <h1>Write a post</h1>
+    <form action="/compose" method="post">
+        <input type="text" name= <%= newPostTitle %> placeholder="Title" required>
+        <input type="text" name= <%= newPostContent %> placeholder="Compose" required>  
+    
+        <button type="submit">Submit your post!</button>
+    
+</body>
+
+<%- include("../partials/footer.ejs") %>
+</div>

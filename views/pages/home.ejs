@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All about IT!</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<div id="wrapper">
+<%- include("../partials/header.ejs") %>
+
+    <h1>Welcome to the Blog!</h1>
+
+    <ul>
+        <% blogPosts.forEach((post) => { %>
+            <li><a href="./pages/<%= post.id %>"><%= post.title %></a></li>
+            <% }); %>
+    </ul>
+<%- include("../partials/footer.ejs") %>
+</div>
+    <!-- <p>Please submit your posts here!</p>
+    <form action="/submit">method="POST">
+        <input type="text" name="fName" placeholder="First name">
+        <input type="text" name="lName" placeholder="Last name">
+        <input type="text" name="title" placeholder="Title">
+        <input type="text" name="post" placeholder="Write Blog Post Here.">
+        <input type="submit" value="OK"></form> -->
+
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<header>
+<nav>
+    <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact Me</a></li>
+    <li><a href="/compose">Write a post</a></li>
+
+    <% if (isAuthenticated) { %>
+        <li><a href="/logout">Logout</a></li>
+    <%  } else { %>
+        <li><a href="/login">Login</a></li>
+    <%  } %>
+
+   <!-- <%#  if (username == '' && password === '') { %>
+        <li><a href="/logout">Logout</a></li>
+    <%#  } else { %>
+        <li><a href="/signup">Sign Up</a></li>
+    <%# } %> --> 
+
+
+</ul>
+</nav>
+
+</header>
