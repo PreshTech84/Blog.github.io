@@ -28,7 +28,7 @@ const blogPosts = [
 let isAuthenticated = false; 
 
 app.get("/", (req, res) => {
-    res.render ("../views/pages/home.ejs", { blogPosts, isAuthenticated });
+    res.render ("../views/pages/home.ejs", { blogPosts, isAuthenticated, posts });
 
 });
 
@@ -43,17 +43,45 @@ app.get("/pages/:id", (req, res) => {
     }
 });
 
-/* app.get("/compose", (req, res) => {
+ app.get("/compose", (req, res) => {
     res.render("./pages/compose.ejs")
 });
 
-app.post("/compose", (req, res)=>{
-    const newPostTitle = req.body.postTitle
-  const newPostContent = req.body.postContent
-  console.log(newPostTitle)
-  console.log(newPostContent)
-  createPostPage = {}
-  }); */
+const posts = [];
+let postTitle = [];
+let postContent = [];
+
+  app.post('/compose', (req, res) => {
+    postTitle = req.body.postTitle
+    postContent = req.body.postContent
+  
+    const postObj = {
+      "title":postTitle,
+      "content":postContent
+    }
+    
+    posts.push(postObj)
+    console.log(posts)
+  });
+  app.get('/posts/:postID', (req, res) => {
+    let postTitle = req.params.postID
+    let postContent = ''
+    let title = ''
+    
+    posts.forEach((post) => {
+      title = post.title
+      content = post.content
+    });
+  
+    if (_.toLower(postTitle) == _.toLower(title)) {
+      res.render(
+        'post', 
+        {
+          title,
+          content
+        })
+    }
+  });
 
 app.post("/comment/:id", (req,res) => {
     const postId = req.params.id;

@@ -4,8 +4,10 @@
 <body>
     <h1>Write a post</h1>
     <form action="/compose" method="post">
-        <input type="text" name= <%= newPostTitle %> placeholder="Title" required>
-        <input type="text" name= <%= newPostContent %> placeholder="Compose" required>  
+        <label for="postTitle">Title</label><br>
+        <input type="text" name="title" placeholder="Title" required>
+        <label for="postContent">Content</label><br>
+        <input type="text" name="content" placeholder="Compose" required>  
     
         <button type="submit">Submit your post!</button>
     

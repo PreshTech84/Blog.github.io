@@ -17,6 +17,14 @@
             <li><a href="./pages/<%= post.id %>"><%= post.title %></a></li>
             <% }); %>
     </ul>
+    <div class="">
+        <% posts.forEach((post)=>{ %>
+               <div class="postStyle">
+                    <h3><%= post.title %></h3>
+                    <p><%= post.content %></p>
+               </div>
+        <% }) %>
+    <div>
 <%- include("../partials/footer.ejs") %>
 </div>
     <!-- <p>Please submit your posts here!</p>
