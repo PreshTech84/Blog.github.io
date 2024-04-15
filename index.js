@@ -15,6 +15,15 @@ app.use((req, res, next) => {
     next();
 
 });
+/* app.use((req, res, next) => {
+    res.locals.post = post;
+    next();
+
+}); */
+
+
+
+
 
 
 const blogPosts = [
@@ -28,7 +37,7 @@ const blogPosts = [
 let isAuthenticated = false; 
 
 app.get("/", (req, res) => {
-    res.render ("../views/pages/home.ejs", { blogPosts, isAuthenticated, posts });
+    res.render ("../views/pages/home.ejs", { blogPosts, isAuthenticated });
 
 });
 
@@ -47,28 +56,16 @@ app.get("/pages/:id", (req, res) => {
     res.render("./pages/compose.ejs")
 });
 
-const posts = [];
-let postTitle = [];
-let postContent = [];
 
-  app.post('/compose', (req, res) => {
-    postTitle = req.body.postTitle
-    postContent = req.body.postContent
-  
-    const postObj = {
-      "title":postTitle,
-      "content":postContent
-    }
-    
-    posts.push(postObj)
-    console.log(posts)
-  });
-  app.get('/posts/:postID', (req, res) => {
-    let postTitle = req.params.postID
-    let postContent = ''
+
+  app.get("/pages/post", (req, res) => {
+    let postTitle = req.params.post
+    let content = ''
     let title = ''
+    const postId = req.params.id;
+    const post = blogPosts.find((post) => post.id == postId);
     
-    posts.forEach((post) => {
+    post.forEach((post) => {
       title = post.title
       content = post.content
     });
